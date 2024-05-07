@@ -1,9 +1,11 @@
 FROM node:alpine as build
 
-ADD . /app
 WORKDIR /app
 
+COPY package.json package-lock.json ./
 RUN npm install
+
+COPY . .
 RUN npm run build
 
 FROM caddy:2.7.6-alpine
