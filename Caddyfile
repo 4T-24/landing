@@ -1,4 +1,13 @@
-:8080
-
-root * /www/html
-file_server
+:8080 {
+    handle {
+        encode zstd gzip
+        try_files {path} {path}.html index.html
+        file_server {
+            pass_thru
+        }
+    }
+    handle {
+        file_server
+        rewrite * 200.html
+    }
+}
