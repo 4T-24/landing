@@ -1,5 +1,4 @@
 .hero {
-    font-size: clamp(40px, 10vw, 100px);
     line-height: 1;
     color: #fff;
     z-index: 2;
